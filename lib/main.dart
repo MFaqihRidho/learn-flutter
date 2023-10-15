@@ -13,26 +13,53 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Random random = Random();
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Animated Container')),
-        body: Center(
-          child: GestureDetector(
-            onTap: () {
-              setState(() {});
-            },
-            child: AnimatedContainer(
-              color: Color.fromARGB(255, random.nextInt(256),
-                  random.nextInt(256), random.nextInt(256)),
-              duration: Duration(milliseconds: 250),
-              width: 50.0 + random.nextInt(101),
-              height: 50.0 + random.nextInt(101),
-            ),
-          ),
+        appBar: AppBar(
+          title: Text('Flex widget'),
+        ),
+        body: Column(
+          children: [
+            Flexible(
+                flex: 1,
+                child: Container(
+                  color: Colors.white,
+                  child: Row(children: [
+                    Flexible(
+                        flex: 1,
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          color: Colors.red.shade100,
+                        )),
+                    Flexible(
+                        flex: 1,
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          color: Colors.red.shade200,
+                        )),
+                    Flexible(
+                        flex: 1,
+                        child: Container(
+                          margin: EdgeInsets.all(5),
+                          color: Colors.red.shade300,
+                        ))
+                  ]),
+                )),
+            Flexible(
+                flex: 2,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  color: Colors.amber.shade500,
+                )),
+            Flexible(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.all(5),
+                  color: Colors.green.shade500,
+                )),
+          ],
         ),
       ),
     );
