@@ -5,63 +5,188 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Flex widget'),
-        ),
-        body: Column(
-          children: [
-            Flexible(
-                flex: 1,
-                child: Container(
-                  color: Colors.white,
-                  child: Row(children: [
-                    Flexible(
+        home: Scaffold(
+      appBar: AppBar(title: Text('Align Widget')),
+      body: (Stack(
+        children: [
+          Column(
+            children: [
+              Flexible(
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Flexible(
                         flex: 1,
                         child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade100,
-                        )),
-                    Flexible(
+                          color: Colors.black26,
+                        ),
+                      ),
+                      Flexible(
                         flex: 1,
                         child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade200,
-                        )),
-                    Flexible(
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  )),
+              Flexible(
+                  flex: 1,
+                  child: Row(
+                    children: [
+                      Flexible(
                         flex: 1,
                         child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade300,
-                        ))
-                  ]),
-                )),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.amber.shade500,
-                )),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.green.shade500,
-                )),
-          ],
-        ),
-      ),
-    );
+                          color: Colors.white,
+                        ),
+                      ),
+                      Flexible(
+                        flex: 1,
+                        child: Container(
+                          color: Colors.black26,
+                        ),
+                      )
+                    ],
+                  ))
+            ],
+          ),
+          ListView(
+            children: [
+              Column(
+                children: [
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Text(
+                      'Tes Text',
+                      style: TextStyle(fontSize: 30),
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+          Align(
+              alignment: Alignment(0, 0.9),
+              child: ElevatedButton(onPressed: () {}, child: Text('Tes')))
+        ],
+      )),
+    ));
   }
 }
