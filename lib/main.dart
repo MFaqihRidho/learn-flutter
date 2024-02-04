@@ -20,47 +20,30 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(
           title: Text('Flex widget'),
         ),
-        body: Column(
+        body: Center(
+            child: Row(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Flexible(
-                flex: 1,
-                child: Container(
-                  color: Colors.white,
-                  child: Row(children: [
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade100,
-                        )),
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade200,
-                        )),
-                    Flexible(
-                        flex: 1,
-                        child: Container(
-                          margin: EdgeInsets.all(5),
-                          color: Colors.red.shade300,
-                        ))
-                  ]),
-                )),
-            Flexible(
-                flex: 2,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.amber.shade500,
-                )),
-            Flexible(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(5),
-                  color: Colors.green.shade500,
-                )),
+            Spacer(flex: 1),
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.red,
+            ),
+            Spacer(flex: 2),
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.green,
+            ),
+            Spacer(flex: 3),
+            Container(
+              height: 100,
+              width: 100,
+              color: Colors.blue,
+            )
           ],
-        ),
+        )),
       ),
     );
   }
