@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,86 +13,28 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int number = 0;
-  void onPressed() {
-    setState(() {
-      number += 1;
-    });
-  }
+  Random random = Random();
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-      appBar: AppBar(title: Text('Statefuls widget')),
-      body: MyWidget(),
-    ));
-  }
-}
-
-class MyWidget extends StatefulWidget {
-  @override
-  _MyWidgetState createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
-  List<Widget> widgets = [];
-
-  _MyWidgetState() {
-    widgets.add(Text('tes 1'));
-    widgets.add(Text('tes 2'));
-    widgets.add(Text('tes 3'));
-  }
-
-  void addWidget() {
-    setState(() {
-      widgets.add(Text('tes ${widgets.length + 1}'));
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        // Your main content goes here
-        Center(
-          child: ListView(children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [...widgets],
-            )
-          ]),
+      home: Scaffold(
+        appBar: AppBar(title: Text('Animated Container')),
+        body: Center(
+          child: GestureDetector(
+            onTap: () {
+              setState(() {});
+            },
+            child: AnimatedContainer(
+              color: Color.fromARGB(255, random.nextInt(256),
+                  random.nextInt(256), random.nextInt(256)),
+              duration: Duration(milliseconds: 250),
+              width: 50.0 + random.nextInt(101),
+              height: 50.0 + random.nextInt(101),
+            ),
+          ),
         ),
-
-        // The floating button
-        Positioned(
-            bottom:
-                16, // Adjust this value to set the button's vertical position
-            right:
-                16, // Adjust this value to set the button's horizontal position
-            child: ClipOval(
-              child: ElevatedButton(
-                style: ButtonStyle(
-                  padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                    EdgeInsets.all(12.0),
-                  ),
-                  shape: MaterialStateProperty.all<OutlinedBorder>(
-                    CircleBorder(),
-                  ),
-                ),
-                onPressed: () {
-                  // Add your button's functionality here
-                  setState(() {
-                    widgets.add(Text('tes ${widgets.length + 1}'));
-                  });
-                },
-                child: Icon(
-                  Icons.add,
-                  size: 36,
-                ),
-              ),
-            )),
-      ],
+      ),
     );
   }
 }
