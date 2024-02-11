@@ -11,8 +11,8 @@ class MainPage extends StatelessWidget {
       // appbar
       backgroundColor: Colors.blue.shade50,
       appBar: AppBar(
-        leading: Icon(Icons.menu),
-        title: Text('Appbar Example'),
+        leading: const Icon(Icons.menu),
+        title: const Text('Appbar Example'),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
           IconButton(
@@ -35,7 +35,7 @@ class MainPage extends StatelessWidget {
         ),
       ),
       body: ListView(
-        padding: EdgeInsets.only(right: 7, left: 7, top: 5),
+        padding: const EdgeInsets.only(right: 7, left: 7, top: 5),
         children: [
           buildCard(
               Icon(
@@ -51,14 +51,47 @@ class MainPage extends StatelessWidget {
               'Android'),
           Center(
             child: ElevatedButton(
-              child: Text("Go to second page"),
+              child: const Text("Go to second page"),
+              style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const SecondPage();
                 }));
               },
             ),
-          )
+          ),
+          const SizedBox(height: 20),
+          Center(
+              child: Material(
+            borderRadius: BorderRadius.circular(20),
+            elevation: 2,
+            child: Container(
+              width: 150,
+              height: 40,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  gradient: const LinearGradient(
+                      colors: [Colors.purple, Colors.pink],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter)),
+              child: Material(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.transparent,
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(20),
+                  splashColor: Colors.amber,
+                  onTap: () {},
+                  child: Center(
+                    child: Text(
+                      'Custom Button',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ))
         ],
       ),
     );
