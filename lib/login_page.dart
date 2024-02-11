@@ -19,11 +19,16 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Center(
           child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            SizedBox(
+                height:
+                    (MediaQuery.of(context).orientation == Orientation.portrait
+                        ? 50
+                        : 10)),
             TextField(
               decoration: InputDecoration(
                   border: const OutlineInputBorder(),
