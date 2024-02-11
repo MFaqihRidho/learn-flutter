@@ -26,8 +26,16 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             TextField(
               decoration: InputDecoration(
-                  border: OutlineInputBorder(),
+                  border: const OutlineInputBorder(),
+                  filled: true,
+                  fillColor: errors.contains('username')
+                      ? Colors.red[50]
+                      : Colors.lightBlue[50],
                   labelText: 'Username',
+                  prefixIcon: const Icon(Icons.person),
+                  prefixIconColor:
+                      errors.contains('username') ? Colors.red : Colors.blue,
+                  hintText: 'Enter your username',
                   errorText:
                       errors.contains('username') ? 'Invalid username' : null),
               onChanged: (value) {
@@ -39,8 +47,16 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20),
             TextField(
               decoration: InputDecoration(
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 labelText: 'Password',
+                filled: true,
+                fillColor: errors.contains('password')
+                    ? Colors.red[50]
+                    : Colors.lightBlue[50],
+                prefixIcon: const Icon(Icons.lock),
+                prefixIconColor:
+                    errors.contains('password') ? Colors.red : Colors.blue,
+                hintText: 'Enter your password',
                 errorText:
                     errors.contains('password') ? 'Invalid password' : null,
               ),
