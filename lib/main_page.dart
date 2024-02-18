@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/hero_page.dart';
 import 'package:quran_app/login_page.dart';
 import 'package:quran_app/second_page.dart';
 
@@ -42,7 +43,7 @@ class MainPage extends StatelessWidget {
                 Icons.account_box,
                 color: Colors.green.shade500,
               ),
-              'Account Box'),
+              'Account Boxs'),
           buildCard(
               Icon(
                 Icons.abc_sharp,
@@ -56,6 +57,17 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const SecondPage();
+                }));
+              },
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              child: const Text("Go to hero page"),
+              style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const HeroPage();
                 }));
               },
             ),
@@ -83,7 +95,7 @@ class MainPage extends StatelessWidget {
                   onTap: () {},
                   child: Center(
                     child: Text(
-                      'Custom Button',
+                      'Custom Buttons',
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w600),
                     ),
@@ -91,7 +103,7 @@ class MainPage extends StatelessWidget {
                 ),
               ),
             ),
-          ))
+          )),
         ],
       ),
     );
