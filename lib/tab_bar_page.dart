@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:audioplayers/audioplayers.dart';
 
-class TabBarPage extends StatelessWidget {
+class TabBarPage extends StatefulWidget {
   const TabBarPage({super.key});
+
+  @override
+  State<TabBarPage> createState() => _TabBarPageState();
+}
+
+class _TabBarPageState extends State<TabBarPage> {
+  void playSound() async {
+    final player = AudioPlayer();
+    await player.play(AssetSource('kontol.mp3'));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +87,12 @@ class TabBarPage extends StatelessWidget {
                     ]),
               ),
               Center(
-                child: Text('Computer'),
+                child: ElevatedButton(
+                  child: Text('Play audio'),
+                  onPressed: () async {
+                    playSound();
+                  },
+                ),
               ),
               Center(
                 child: Text('Ini Text'),
