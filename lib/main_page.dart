@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quran_app/hero_page.dart';
 import 'package:quran_app/login_page.dart';
 import 'package:quran_app/second_page.dart';
+import 'package:quran_app/tab_bar_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -11,26 +12,29 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       // appbar
       backgroundColor: Colors.blue.shade50,
-      appBar: AppBar(
-        leading: const Icon(Icons.menu),
-        title: const Text('Appbar Example'),
-        actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-          IconButton(
-              onPressed: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) {
-                  return const LoginPage();
-                }));
-              },
-              icon: Icon(Icons.exit_to_app))
-        ],
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Color(0xff0096ff), Color(0xff6610f2)],
-              begin: Alignment.topLeft,
-              end: Alignment(0.8, 1),
+      appBar: PreferredSize(
+        preferredSize: const Size.fromHeight(100),
+        child: AppBar(
+          leading: const Icon(Icons.menu),
+          title: const Text('Appbar Example with custom height'),
+          actions: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
+            IconButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) {
+                    return const LoginPage();
+                  }));
+                },
+                icon: Icon(Icons.exit_to_app))
+          ],
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Color(0xff0096ff), Color(0xff6610f2)],
+                begin: Alignment.topLeft,
+                end: Alignment(0.8, 1),
+              ),
             ),
           ),
         ),
@@ -68,6 +72,18 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const HeroPage();
+                }));
+              },
+            ),
+          ),
+          const SizedBox(height: 20),
+          Center(
+            child: ElevatedButton(
+              child: const Text("Go to Tab Bars page"),
+              style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const TabBarPage();
                 }));
               },
             ),
