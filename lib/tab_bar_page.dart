@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class TabBarPage extends StatelessWidget {
   const TabBarPage({super.key});
@@ -11,8 +12,8 @@ class TabBarPage extends StatelessWidget {
             border: Border(bottom: BorderSide(color: Colors.blue))),
         tabs: [
           Tab(
-            icon: Icon(Icons.comment),
-            text: 'Commen',
+            icon: Icon(Icons.qr_code),
+            text: 'Qr Code',
           ),
           Tab(
             child: Image(
@@ -43,7 +44,12 @@ class TabBarPage extends StatelessWidget {
             ),
             body: TabBarView(children: [
               Center(
-                child: Text('Comments'),
+                child: QrImageView(
+                  data:
+                      'https://www.youtube.com/watch?v=7CFAEXymRvM&list=PLZQbl9Jhl-VACm40h5t6QMDB92WlopQmV&index=33',
+                  version: 6,
+                  size: 300,
+                ),
               ),
               Center(
                 child: Text('Karina terlalu cantik'),
