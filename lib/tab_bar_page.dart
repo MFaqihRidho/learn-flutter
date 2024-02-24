@@ -52,7 +52,28 @@ class TabBarPage extends StatelessWidget {
                 ),
               ),
               Center(
-                child: Text('Karina terlalu cantik'),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ShaderMask(
+                        shaderCallback: (rectangle) {
+                          return LinearGradient(
+                                  colors: [Colors.black, Colors.transparent],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter)
+                              .createShader(Rect.fromLTRB(
+                                  0, 0, rectangle.width, rectangle.bottom));
+                        },
+                        blendMode: BlendMode.dstIn,
+                        child: Image(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(
+                              'https://thumb.viva.id/vivaolret/1265x711/2023/05/21/6469cccfd2712-karina-aespa_olret.jpg'),
+                        ),
+                      ),
+                      Text('Karina terlalu cantik Woi')
+                    ]),
               ),
               Center(
                 child: Text('Computer'),
