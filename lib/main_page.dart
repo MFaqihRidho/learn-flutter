@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran_app/create_user_page.dart';
 import 'package:quran_app/hero_page.dart';
 import 'package:quran_app/login_page.dart';
 import 'package:quran_app/second_page.dart';
@@ -84,6 +85,17 @@ class MainPage extends StatelessWidget {
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const TabBarPage();
+                }));
+              },
+            ),
+          ),
+          Center(
+            child: ElevatedButton(
+              child: const Text("Create Users"),
+              style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return const CreateUserPage();
                 }));
               },
             ),
